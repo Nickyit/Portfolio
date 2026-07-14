@@ -8,10 +8,8 @@ export const CustomCursor = React.memo(() => {
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
 
-  // Use springs for smooth follower effect
-  const springConfig = { damping: 25, stiffness: 200, mass: 0.5 };
-  const cursorXSpring = useSpring(cursorX, springConfig);
-  const cursorYSpring = useSpring(cursorY, springConfig);
+  // Removed useSpring to make the cursor instantly responsive
+  // (User reported trailing delay/lag)
 
   useEffect(() => {
     // Only enable on devices with fine pointer (not touch screens)
@@ -52,8 +50,8 @@ export const CustomCursor = React.memo(() => {
     <motion.div
       className="fixed top-0 left-0 w-5 h-5 rounded-full pointer-events-none z-[10000] flex items-center justify-center mix-blend-difference"
       style={{
-        x: cursorXSpring,
-        y: cursorYSpring,
+        x: cursorX,
+        y: cursorY,
       }}
       animate={{
         scale: isHoveringHeading ? 5 : 1,
