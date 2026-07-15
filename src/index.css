@@ -140,8 +140,8 @@ html {
 
 /* Social Button Animation */
 .social-btn {
-  width: 80px;
-  height: 80px;
+  width: 56px;
+  height: 56px;
   background-color: #fff;
   border-radius: 50%;
   position: relative;
@@ -156,8 +156,8 @@ html {
 .social-btn .icon {
   position: relative;
   color: #262626;
-  width: 35px;
-  height: 35px;
+  width: 24px;
+  height: 24px;
   transition: .5s;
   z-index: 3;
 }
@@ -186,6 +186,18 @@ html {
 .social-btn.leetcode:before { background: #f89f1b; }
 .social-btn.github:before { background: #333; }
 .social-btn.email:before { background: #dd4b39; }
+
+@media (min-width: 768px) {
+  .social-btn {
+    width: 80px;
+    height: 80px;
+  }
+  .social-btn .icon {
+    width: 35px;
+    height: 35px;
+  }
+}
+
 /* Nav Link Underline Animation */
 .nav-link-anim {
   position: relative;

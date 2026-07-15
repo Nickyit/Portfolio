@@ -33,7 +33,7 @@ export const Hero = () => {
       <div className="container mx-auto px-6 md:px-12 flex items-center relative z-10 min-h-screen pointer-events-none">
 
         {/* Text Content */}
-        <div className="flex flex-col gap-6 w-full max-w-4xl bg-black/40 backdrop-blur-md p-8 lg:p-12 rounded-2xl border border-white/5 shadow-2xl pointer-events-auto">
+        <div className="flex flex-col gap-6 w-full max-w-4xl bg-black/40 backdrop-blur-md p-6 sm:p-8 lg:p-12 rounded-2xl border border-white/5 shadow-2xl pointer-events-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -42,11 +42,11 @@ export const Hero = () => {
             <span className="inline-block py-1 px-3 rounded-full glass border border-blue-500/30 text-blue-400 text-sm font-medium mb-6">
               Junior AI/ML Engineer | Python Developer
             </span>
-            <h1 className="text-5xl md:text-7xl font-bold leading-tight tracking-tighter mb-4">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold leading-tight tracking-tighter mb-4">
               Building the <br />
               <span className="text-gradient">Intelligent Future</span>
             </h1>
-            <p className="text-gray-400 text-lg md:text-xl leading-relaxed max-w-lg">
+            <p className="text-gray-400 text-base md:text-lg lg:text-xl leading-relaxed max-w-lg">
               Python developer and Machine Learning engineer specializing in NLP pipelines, text classification models, and chatbot systems.
             </p>
           </motion.div>

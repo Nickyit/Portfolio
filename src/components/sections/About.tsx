@@ -39,9 +39,9 @@ export const About = () => {
       title="About Me"
       subtitle="Passionate about applying ML and NLP to solve real-world problems."
     >
-      <div className="flex flex-col gap-20 mt-12">
+      <div className="flex flex-col gap-12 md:gap-20 mt-12">
         {/* Top Section: Image and Text */}
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           
           {/* Left: Image & Floating Cards */}
           <motion.div
@@ -97,13 +97,13 @@ export const About = () => {
             className="flex flex-col gap-8 order-2 lg:order-2"
           >
             <div className="space-y-4">
-              <h3 className="text-3xl font-semibold text-white tracking-tight">
+              <h3 className="text-2xl sm:text-3xl font-semibold text-white tracking-tight">
                 Building Intelligent Applications with AI & Python
               </h3>
               <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full"></div>
             </div>
             
-            <div className="space-y-5 text-gray-400 text-lg leading-relaxed max-w-prose">
+            <div className="space-y-5 text-gray-400 text-base sm:text-lg leading-relaxed max-w-prose">
               <p>
                 I am a Junior AI/ML Engineer and Python Developer with a strong foundation in building robust data pipelines, text classification models, and NLP-powered chatbot systems. Through my professional internship at Persevex, I transformed real-world problem statements into supervised learning models using Scikit-learn and Pandas.
               </p>

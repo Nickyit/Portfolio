@@ -170,14 +170,14 @@ export const Contact = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-black to-purple-900/20" />
         <div className="absolute -top-[500px] left-1/2 -translate-x-1/2 w-[1000px] h-[1000px] bg-blue-500/10 rounded-full blur-[120px] pointer-events-none" />
         
-        <div className="relative z-10 glass-card p-8 md:p-16 border-white/5 shadow-2xl">
-          <div className="grid md:grid-cols-2 gap-16">
+        <div className="relative z-10 glass-card p-6 md:p-16 border-white/5 shadow-2xl">
+          <div className="grid md:grid-cols-2 gap-10 md:gap-16">
             
             <div>
               <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center mb-8 shadow-lg shadow-blue-500/20">
                 <Terminal className="text-white w-6 h-6" />
               </div>
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 tracking-tight">
                 Let's Build the <br />
                 <span className="text-gradient">Future</span> Together
               </h2>
