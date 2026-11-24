@@ -1,32 +1,112 @@
-# React + TypeScript + Vite
+# Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Modern AI/ML Portfolio | React • TypeScript • Vite • Tailwind CSS • Framer Motion • EmailJS
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Getting Started
 
-## React Compiler
+### Prerequisites
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Make sure you have the following installed on your machine:
 
-## Expanding the Oxlint configuration
+- **Node.js** (v18 or higher) — [Download](https://nodejs.org/)
+- **npm** (comes with Node.js) or **yarn**
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+### Installation
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+1. **Clone the repository**
+
+   ```bash
+   git clone https://github.com/Nickyit/Portfolio.git
+   cd Portfolio
+   ```
+
+2. **Install dependencies**
+
+   ```bash
+   npm install
+   ```
+
+### Running the Application
+
+#### Development Server
+
+Start the local development server with hot module replacement (HMR):
+
+```bash
+npm run dev
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+The app will be available at **http://localhost:5173** (default Vite port).
+
+#### Production Build
+
+Build the project for production:
+
+```bash
+npm run build
+```
+
+#### Preview Production Build
+
+Preview the production build locally:
+
+```bash
+npm run preview
+```
+
+#### Linting
+
+Run the linter to check for code issues:
+
+```bash
+npm run lint
+```
+
+---
+
+## 🛠️ Tech Stack
+
+| Technology       | Purpose                  |
+| ---------------- | ------------------------ |
+| React            | UI library               |
+| TypeScript       | Type safety              |
+| Vite             | Build tool & dev server  |
+| Tailwind CSS     | Utility-first styling    |
+| Framer Motion    | Animations               |
+| Three.js         | 3D graphics              |
+| EmailJS          | Contact form emails      |
+| Lucide React     | Icons                    |
+
+---
+
+## 📁 Project Structure
+
+```
+Portfolio/
+├── public/             # Static assets (images, resume, icons)
+├── src/
+│   ├── assets/         # App assets
+│   ├── components/
+│   │   ├── layout/     # Layout components (Section, Navbar, etc.)
+│   │   └── sections/   # Page sections (Hero, About, Projects, etc.)
+│   ├── App.tsx         # Root component
+│   ├── main.tsx        # Entry point
+│   └── index.css       # Global styles
+├── package.json
+├── tsconfig.json
+├── vite.config.ts
+└── README.md
+```
+
+---
+
+## 📜 Available Scripts
+
+| Command           | Description                              |
+| ----------------- | ---------------------------------------- |
+| `npm run dev`     | Start development server with HMR        |
+| `npm run build`   | Type-check and build for production      |
+| `npm run preview` | Preview the production build locally     |
+| `npm run lint`    | Run Oxlint for code quality checks       |
