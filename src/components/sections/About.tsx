@@ -11,7 +11,6 @@ const AnimatedCounter = ({ to, duration = 2 }: { to: number; duration?: number }
 
   useEffect(() => {
     if (isInView) {
-      let start = 0;
       const steps = duration * 60;
       const increment = to / steps;
       let current = 0;
@@ -114,25 +113,33 @@ export const About = () => {
 
             {/* Information Cards (Education & Internship) */}
             <div className="grid sm:grid-cols-2 gap-6 mt-4">
-              <div className="relative group/card h-full">
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/30 to-transparent opacity-0 group-hover/card:opacity-100 rounded-2xl transition-opacity duration-500 blur-md" />
-                <div className="relative h-full p-6 glass rounded-2xl border border-white/5 hover:border-blue-500/30 transition-all duration-300 hover:-translate-y-1 bg-gradient-to-b from-white/5 to-transparent">
-                  <GraduationCap className="w-8 h-8 text-blue-400 mb-4" />
+              <motion.div 
+                whileHover={{ y: -4 }}
+                transition={{ duration: 0.25, ease: 'easeOut' }}
+                className="relative group/card h-full"
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/30 to-transparent opacity-0 group-hover/card:opacity-100 rounded-2xl transition-opacity duration-500 blur-md pointer-events-none" />
+                <div className="relative h-full p-6 glass rounded-2xl border border-white/5 hover:border-blue-500/30 transition-all duration-300 bg-gradient-to-b from-white/5 to-transparent">
+                  <GraduationCap className="w-8 h-8 text-blue-400 mb-4 transition-transform duration-300 group-hover/card:scale-110" />
                   <h4 className="font-bold text-white mb-1">Education</h4>
                   <p className="text-sm text-gray-400">B.E. Computer Science</p>
                   <p className="text-xs text-gray-500 mt-2">RGPV, Indore (2023 - 2027)</p>
                 </div>
-              </div>
+              </motion.div>
 
-              <div className="relative group/card h-full">
-                <div className="absolute inset-0 bg-gradient-to-br from-purple-500/30 to-transparent opacity-0 group-hover/card:opacity-100 rounded-2xl transition-opacity duration-500 blur-md" />
-                <div className="relative h-full p-6 glass rounded-2xl border border-white/5 hover:border-purple-500/30 transition-all duration-300 hover:-translate-y-1 bg-gradient-to-b from-white/5 to-transparent">
-                  <Briefcase className="w-8 h-8 text-purple-400 mb-4" />
+              <motion.div 
+                whileHover={{ y: -4 }}
+                transition={{ duration: 0.25, ease: 'easeOut' }}
+                className="relative group/card h-full"
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-500/30 to-transparent opacity-0 group-hover/card:opacity-100 rounded-2xl transition-opacity duration-500 blur-md pointer-events-none" />
+                <div className="relative h-full p-6 glass rounded-2xl border border-white/5 hover:border-purple-500/30 transition-all duration-300 bg-gradient-to-b from-white/5 to-transparent">
+                  <Briefcase className="w-8 h-8 text-purple-400 mb-4 transition-transform duration-300 group-hover/card:scale-110" />
                   <h4 className="font-bold text-white mb-1">Internship</h4>
                   <p className="text-sm text-gray-400">AI Intern at Persevex</p>
                   <p className="text-xs text-gray-500 mt-2">Applied ML & NLP</p>
                 </div>
-              </div>
+              </motion.div>
             </div>
           </motion.div>
         </div>
@@ -141,43 +148,59 @@ export const About = () => {
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          viewport={{ once: true, margin: '-40px' }}
+          transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           className="grid grid-cols-2 md:grid-cols-4 gap-4 lg:gap-8"
         >
           {/* Stat 1 */}
-          <div className="p-6 glass rounded-2xl text-center flex flex-col items-center justify-center border border-white/5 hover:border-white/10 transition-colors">
+          <motion.div 
+            whileHover={{ y: -3 }}
+            transition={{ duration: 0.2 }}
+            className="p-6 glass rounded-2xl text-center flex flex-col items-center justify-center border border-white/5 hover:border-white/20 transition-all duration-300 hover:shadow-[0_8px_25px_rgba(0,0,0,0.3)]"
+          >
             <FolderGit2 className="w-6 h-6 text-gray-400 mb-3" />
             <div className="text-3xl font-bold text-white mb-1">
               <AnimatedCounter to={2} />+
             </div>
             <div className="text-sm text-gray-500 font-medium">Projects</div>
-          </div>
+          </motion.div>
 
           {/* Stat 2 */}
-          <div className="p-6 glass rounded-2xl text-center flex flex-col items-center justify-center border border-white/5 hover:border-white/10 transition-colors">
+          <motion.div 
+            whileHover={{ y: -3 }}
+            transition={{ duration: 0.2 }}
+            className="p-6 glass rounded-2xl text-center flex flex-col items-center justify-center border border-white/5 hover:border-white/20 transition-all duration-300 hover:shadow-[0_8px_25px_rgba(0,0,0,0.3)]"
+          >
             <Briefcase className="w-6 h-6 text-gray-400 mb-3" />
             <div className="text-3xl font-bold text-white mb-1">
               <AnimatedCounter to={1} />
             </div>
             <div className="text-sm text-gray-500 font-medium">Internship</div>
-          </div>
+          </motion.div>
 
           {/* Stat 3 */}
-          <div className="p-6 glass rounded-2xl text-center flex flex-col items-center justify-center border border-white/5 hover:border-white/10 transition-colors">
+          <motion.div 
+            whileHover={{ y: -3 }}
+            transition={{ duration: 0.2 }}
+            className="p-6 glass rounded-2xl text-center flex flex-col items-center justify-center border border-white/5 hover:border-white/20 transition-all duration-300 hover:shadow-[0_8px_25px_rgba(0,0,0,0.3)]"
+          >
             <Calendar className="w-6 h-6 text-gray-400 mb-3" />
             <div className="text-3xl font-bold text-white mb-1">
               <AnimatedCounter to={2027} duration={1} />
             </div>
             <div className="text-sm text-gray-500 font-medium">Graduation</div>
-          </div>
+          </motion.div>
 
           {/* Stat 4 */}
-          <div className="p-6 glass rounded-2xl text-center flex flex-col items-center justify-center border border-white/5 hover:border-white/10 transition-colors">
+          <motion.div 
+            whileHover={{ y: -3 }}
+            transition={{ duration: 0.2 }}
+            className="p-6 glass rounded-2xl text-center flex flex-col items-center justify-center border border-white/5 hover:border-white/20 transition-all duration-300 hover:shadow-[0_8px_25px_rgba(0,0,0,0.3)]"
+          >
             <Code2 className="w-6 h-6 text-gray-400 mb-3" />
             <div className="text-2xl font-bold text-white mb-1 mt-1">Python</div>
             <div className="text-sm text-gray-500 font-medium">Primary Language</div>
-          </div>
+          </motion.div>
         </motion.div>
       </div>
     </Section>
