@@ -165,10 +165,19 @@ export const Contact = () => {
         )}
       </AnimatePresence>
 
-      <div className="max-w-4xl mx-auto rounded-3xl overflow-hidden relative">
-        {/* Background Effects */}
+      <motion.div 
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-60px' }}
+        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        className="max-w-4xl mx-auto rounded-3xl overflow-hidden relative"
+      >
+        {/* Background Effects (GPU-optimized radial gradient instead of 1000px Gaussian blur) */}
         <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-black to-purple-900/20" />
-        <div className="absolute -top-[500px] left-1/2 -translate-x-1/2 w-[1000px] h-[1000px] bg-blue-500/10 rounded-full blur-[120px] pointer-events-none" />
+        <div 
+          className="absolute -top-[500px] left-1/2 -translate-x-1/2 w-[1000px] h-[1000px] rounded-full pointer-events-none" 
+          style={{ background: 'radial-gradient(circle, rgba(59, 130, 246, 0.12) 0%, transparent 70%)' }}
+        />
         
         <div className="relative z-10 glass-card p-6 md:p-16 border-white/5 shadow-2xl">
           <div className="grid md:grid-cols-2 gap-10 md:gap-16">
@@ -211,7 +220,7 @@ export const Contact = () => {
                     value={form.name}
                     onChange={handleChange}
                     placeholder="John Doe"
-                    className={`w-full bg-white/5 border rounded-xl px-4 py-3 text-white placeholder:text-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition-all ${
+                    className={`w-full bg-white/5 border rounded-xl px-4 py-3 text-white placeholder:text-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500/50 hover:border-white/20 focus:border-blue-500/60 focus:bg-white/[0.07] transition-all duration-300 ${
                       errors.name ? 'border-red-500/50 focus:ring-red-500/30' : 'border-white/10'
                     }`}
                   />
@@ -227,7 +236,7 @@ export const Contact = () => {
                     value={form.email}
                     onChange={handleChange}
                     placeholder="john@example.com"
-                    className={`w-full bg-white/5 border rounded-xl px-4 py-3 text-white placeholder:text-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition-all ${
+                    className={`w-full bg-white/5 border rounded-xl px-4 py-3 text-white placeholder:text-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500/50 hover:border-white/20 focus:border-blue-500/60 focus:bg-white/[0.07] transition-all duration-300 ${
                       errors.email ? 'border-red-500/50 focus:ring-red-500/30' : 'border-white/10'
                     }`}
                   />
@@ -245,7 +254,7 @@ export const Contact = () => {
                   value={form.subject}
                   onChange={handleChange}
                   placeholder="Opportunity: Lead AI Engineer"
-                  className={`w-full bg-white/5 border rounded-xl px-4 py-3 text-white placeholder:text-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition-all ${
+                  className={`w-full bg-white/5 border rounded-xl px-4 py-3 text-white placeholder:text-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500/50 hover:border-white/20 focus:border-blue-500/60 focus:bg-white/[0.07] transition-all duration-300 ${
                     errors.subject ? 'border-red-500/50 focus:ring-red-500/30' : 'border-white/10'
                   }`}
                 />
@@ -262,7 +271,7 @@ export const Contact = () => {
                   onChange={handleChange}
                   rows={4}
                   placeholder="Tell me about your project..."
-                  className={`w-full bg-white/5 border rounded-xl px-4 py-3 text-white placeholder:text-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition-all resize-none ${
+                  className={`w-full bg-white/5 border rounded-xl px-4 py-3 text-white placeholder:text-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500/50 hover:border-white/20 focus:border-blue-500/60 focus:bg-white/[0.07] transition-all duration-300 resize-none ${
                     errors.message ? 'border-red-500/50 focus:ring-red-500/30' : 'border-white/10'
                   }`}
                 />
@@ -272,10 +281,11 @@ export const Contact = () => {
               </div>
               
               <motion.button
-                whileHover={{ scale: isSending ? 1 : 1.02 }}
-                whileTap={{ scale: isSending ? 1 : 0.98 }}
+                whileHover={{ scale: isSending ? 1 : 1.015 }}
+                whileTap={{ scale: isSending ? 1 : 0.985 }}
+                transition={{ type: 'spring', stiffness: 400, damping: 20 }}
                 disabled={isSending}
-                className="w-full mt-4 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-400 hover:to-purple-500 text-white font-bold py-4 px-8 rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-blue-500/25 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full mt-4 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-400 hover:to-purple-500 text-white font-bold py-4 px-8 rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-blue-500/25 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
                 type="submit"
               >
                 {isSending ? (
@@ -293,7 +303,7 @@ export const Contact = () => {
             </form>
           </div>
         </div>
-      </div>
+      </motion.div>
     </Section>
   );
 };
