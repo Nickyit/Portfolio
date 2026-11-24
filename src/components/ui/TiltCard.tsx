@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { cn } from '../../lib/utils';
 
@@ -9,7 +9,6 @@ interface TiltCardProps {
 
 export const TiltCard: React.FC<TiltCardProps> = ({ children, className }) => {
   const ref = useRef<HTMLDivElement>(null);
-  const [isHovered, setIsHovered] = useState(false);
 
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -41,7 +40,6 @@ export const TiltCard: React.FC<TiltCardProps> = ({ children, className }) => {
   };
 
   const handleMouseLeave = () => {
-    setIsHovered(false);
     // Reset rotations smoothly
     x.set(0);
     y.set(0);
@@ -51,7 +49,6 @@ export const TiltCard: React.FC<TiltCardProps> = ({ children, className }) => {
     <motion.div
       ref={ref}
       onMouseMove={handleMouseMove}
-      onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={handleMouseLeave}
       style={{
         rotateY,
