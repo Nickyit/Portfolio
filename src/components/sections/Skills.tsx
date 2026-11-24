@@ -74,7 +74,7 @@ const itemVariants: Variants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5 },
+    transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] },
   },
 };
 
@@ -96,10 +96,12 @@ export const Skills = () => {
           <motion.div
             key={index}
             variants={itemVariants}
-            className="group h-full relative overflow-hidden rounded-2xl bg-[#111111] border border-white/5 p-6 hover:border-white/10 transition-colors duration-500"
+            whileHover={{ y: -4 }}
+            transition={{ duration: 0.25, ease: 'easeOut' }}
+            className="group h-full relative overflow-hidden rounded-2xl bg-[#111111] border border-white/5 p-6 hover:border-white/15 transition-all duration-500 hover:shadow-[0_8px_30px_rgba(0,0,0,0.4)]"
           >
             {/* Soft Radial Gradient Background in top-right */}
-            <div className={`absolute -top-24 -right-24 w-64 h-64 rounded-full blur-[80px] pointer-events-none transition-colors duration-700 ${skill.bgGlow} group-hover:opacity-100 opacity-70 z-0`} />
+            <div className={`absolute -top-24 -right-24 w-64 h-64 rounded-full blur-2xl pointer-events-none transition-opacity duration-500 ${skill.bgGlow} group-hover:opacity-100 opacity-70 z-0`} />
             
             {/* Optional Image Background */}
             {skill.imageBg && (
@@ -115,7 +117,7 @@ export const Skills = () => {
             )}
             
             <div className="relative z-10">
-              <div className={`mb-6 p-3 rounded-xl border inline-flex items-center justify-center ${skill.iconBg}`}>
+              <div className={`mb-6 p-3 rounded-xl border inline-flex items-center justify-center transition-transform duration-300 group-hover:scale-105 ${skill.iconBg}`}>
                 {skill.icon}
               </div>
               <h3 className="text-xl font-bold text-white mb-4 tracking-tight">{skill.category}</h3>
@@ -123,7 +125,7 @@ export const Skills = () => {
                 {skill.items.map((item, idx) => (
                   <span
                     key={idx}
-                    className="px-3 py-1.5 text-xs font-semibold text-gray-300 bg-white/5 rounded-md hover:bg-white/10 transition-colors cursor-default"
+                    className="px-3 py-1.5 text-xs font-semibold text-gray-300 bg-white/5 rounded-md hover:bg-white/10 hover:text-white transition-all duration-200 cursor-default hover:scale-[1.03] border border-transparent hover:border-white/10"
                   >
                     {item}
                   </span>
