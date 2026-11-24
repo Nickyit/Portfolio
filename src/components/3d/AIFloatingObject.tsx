@@ -1,11 +1,12 @@
 import React, { useRef, useMemo, useEffect } from 'react';
 import { useFrame, useThree } from '@react-three/fiber';
-import { Float, Stars, Sparkles } from '@react-three/drei';
+import { Stars, Sparkles } from '@react-three/drei';
 import * as THREE from 'three';
 import { EffectComposer, Bloom } from '@react-three/postprocessing';
 
 const NODE_COUNT = 40;
 const MAX_DISTANCE = 3.5;
+const tempDummy = new THREE.Object3D();
 
 export const AIFloatingObject = () => {
   const groupRef = useRef<THREE.Group>(null);
@@ -103,7 +104,6 @@ export const AIFloatingObject = () => {
 
     // Node floating & dynamic connections
     if (nodesRef.current && linesRef.current) {
-      const dummy = new THREE.Object3D();
       let lineCount = 0;
 
       for (let i = 0; i < NODE_COUNT; i++) {
@@ -130,11 +130,11 @@ export const AIFloatingObject = () => {
           py += (dy / mouseDist) * 0.02;
         }
 
-        dummy.position.set(px, py, pz);
+        tempDummy.position.set(px, py, pz);
         const s = sizes[i] * 0.15;
-        dummy.scale.set(s, s, s);
-        dummy.updateMatrix();
-        nodesRef.current.setMatrixAt(i, dummy.matrix);
+        tempDummy.scale.set(s, s, s);
+        tempDummy.updateMatrix();
+        nodesRef.current.setMatrixAt(i, tempDummy.matrix);
 
         // Connections based on distance
         for (let j = i + 1; j < NODE_COUNT; j++) {
@@ -187,11 +187,11 @@ export const AIFloatingObject = () => {
       <directionalLight position={[10, 10, 5]} intensity={2} color="#42A5F5" />
       <directionalLight position={[-10, -10, -5]} intensity={2} color="#FF4FD8" />
       
-      <Stars radius={50} depth={50} count={3500} factor={4} saturation={0} fade speed={1} />
-      <Sparkles count={80} scale={20} size={2} speed={0.3} opacity={0.4} color="#ffffff" />
+      <Stars radius={50} depth={50} count={1800} factor={4} saturation={0} fade speed={1} />
+      <Sparkles count={60} scale={20} size={2} speed={0.3} opacity={0.4} color="#ffffff" />
 
       <EffectComposer>
-        <Bloom luminanceThreshold={0.15} mipmapBlur intensity={1.5} />
+        <Bloom luminanceThreshold={0.2} mipmapBlur intensity={1.2} />
       </EffectComposer>
 
       <group ref={groupRef}>
@@ -209,11 +209,10 @@ export const AIFloatingObject = () => {
 
         {/* Nodes */}
         <instancedMesh ref={nodesRef} args={[undefined, undefined, NODE_COUNT]}>
-          <sphereGeometry args={[1, 16, 16]} />
-          <meshPhysicalMaterial 
-            roughness={0.1}
+          <sphereGeometry args={[1, 14, 14]} />
+          <meshStandardMaterial 
+            roughness={0.15}
             metalness={0.8}
-            clearcoat={1}
             toneMapped={false}
           />
         </instancedMesh>
