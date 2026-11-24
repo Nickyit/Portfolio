@@ -12,13 +12,20 @@ export const Footer = () => {
   return (
     <footer className="relative border-t border-white/10 bg-[#0a0a0a] pt-8 pb-4 overflow-hidden">
       {/* Background Glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-gradient-to-b from-blue-500/5 to-transparent blur-[100px] pointer-events-none" />
+      <div 
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] rounded-full pointer-events-none" 
+        style={{ background: 'radial-gradient(ellipse at top, rgba(59, 130, 246, 0.08) 0%, transparent 70%)' }}
+      />
       
       <div className="container mx-auto px-6 md:px-12 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-6">
           <div className="md:col-span-2">
-            <a href="#" className="flex items-center gap-2 mb-3 group inline-flex">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center shadow-lg shadow-blue-500/20">
+            <a 
+              href="#" 
+              onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+              className="flex items-center gap-2 mb-3 group inline-flex transition-transform duration-300 hover:scale-105"
+            >
+              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center shadow-lg shadow-blue-500/20 group-hover:shadow-blue-500/40 transition-shadow duration-300">
                 <Terminal className="text-white w-4 h-4" />
               </div>
               <span className="font-bold text-lg tracking-tight">Nikita Digodiya</span>
@@ -29,7 +36,7 @@ export const Footer = () => {
                   key={index}
                   href={link.href}
                   aria-label={link.label}
-                  className={`w-9 h-9 rounded-full glass flex items-center justify-center text-gray-400 hover:text-white border border-white/10 transition-all duration-300 ${link.hoverClass}`}
+                  className={`w-9 h-9 rounded-full glass flex items-center justify-center text-gray-400 hover:text-white border border-white/10 transition-all duration-300 hover:scale-105 active:scale-95 ${link.hoverClass}`}
                 >
                   {link.icon}
                 </a>
